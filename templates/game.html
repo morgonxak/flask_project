@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>MJPG-Streamer - Stream Example</title>
+    <link rel="stylesheet" href="static/game.css">
+  </head>
+  <body>
+    <center>
+      <img src="http://{{ip}}/?action=stream"/>
+      <form method='get' id='form1'>
+      <button type="submit" name="submit" onchange="document.getElementById(\'form1\').submit(); return false;  "> <i>Играть</i></button>
+      </form>
+      <form id = "f1" method="get">
+        <button type="submit" name = 'left' value="ok" onchange="document.getElementById(\'f1\').submit(); return false;  "> < </button>
+        <button type="submit" name = 'right' value="ok" onchange="document.getElementById(\'f1\').submit(); return false;  "> > </button>
+      </form>
+    </center>
+  </body>
+</html>

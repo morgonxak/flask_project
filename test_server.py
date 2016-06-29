@@ -1,28 +1,17 @@
-import socket
 
+from config import socket,host,port
 
-def Main():
-    host = "127.0.0.1"
-    port = 5000
+def Main(message):
+
 
     mySocket = socket.socket()
-    mySocket.bind((host, port))
+    mySocket.connect((host, port))
 
-    mySocket.listen(2)
-    conn, addr = mySocket.accept()
-    print("Connection from: " + str(addr))
-    while True:
-        data = conn.recv(1024).decode()
-        if not data:
-            break
-        print("from connected  user: " + str(data))
+    while message != 'q':
+        mySocket.send(message.encode())
+        data = mySocket.recv(1024).decode()
 
-        data = str(data).upper()
-        print("sending: " + str(data))
-        conn.send(data.encode())
-
-    conn.close()
+        return (data)
 
 
-if __name__ == '__main__':
-    Main()
+    mySocket.close()
